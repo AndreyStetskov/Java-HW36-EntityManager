@@ -1,0 +1,7 @@
+JDK Proxy was used in a following methods:
+    * getUser(),
+    * addUser(),
+    * delete.
+because JDK Proxy can only proxy by interface (so my target class needs to implement an interface, which is then also implemented by the proxy class).
+
+CGLib Proxy wasn't used anywhere. It can create a proxy by subclassing. And my "project" include subclassing no one.
