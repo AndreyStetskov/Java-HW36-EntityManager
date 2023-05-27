@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.crazyemperor</groupId>
-    <artifactId>homework35-logging-transactional</artifactId>
+    <artifactId>homework36-response_entity</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>homework35-logging-transactional</name>
     <description>homework35-logging-transactional</description>

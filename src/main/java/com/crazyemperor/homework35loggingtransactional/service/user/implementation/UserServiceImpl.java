@@ -5,7 +5,6 @@ import com.crazyemperor.homework35loggingtransactional.service.database.UserData
 import com.crazyemperor.homework35loggingtransactional.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,6 +29,7 @@ public class UserServiceImpl implements UserService {
         user.setPoint(0);
         user.setBlocked(false);
 
+        log.info("The user is being created");
         return userDataBaseService.addUser(user);
     }
 
@@ -37,6 +37,26 @@ public class UserServiceImpl implements UserService {
     public void delete(String nickname) {
 
         log.info("Are you sure you want to delete this user?");
+        log.info("The user is being deleted");
+
         userDataBaseService.userIsDeletedByNickname(nickname);
+
+        log.info("The user was deleted");
+    }
+
+    @Override
+    @Transactional
+    public User addTwoUsers(User user) {
+        log.info("Now create a new user");
+
+        user.setNickname("IslandTrading");
+        user.setFirstName("Helen");
+        user.setLastName("Bennett");
+        user.setCountry("Belgium");
+        user.setPoint(0);
+        user.setBlocked(false);
+
+        log.info("The user is being created");
+        return userDataBaseService.addUser(user);
     }
 }

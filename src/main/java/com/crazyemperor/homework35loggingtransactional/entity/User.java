@@ -11,7 +11,7 @@ public class User {
 
     @Id
     @Column(name = "UserID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ID;
 
     @Basic(optional = false)

@@ -4,6 +4,7 @@ import com.crazyemperor.homework35loggingtransactional.entity.User;
 import com.crazyemperor.homework35loggingtransactional.service.database.UserDataBaseService;
 import com.crazyemperor.homework35loggingtransactional.service.newpartner.NewPartnerService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Primary
+@Slf4j
 public class HighestPopularityNewPartnerService implements NewPartnerService {
 
     private final UserDataBaseService userDataBaseService;
@@ -28,6 +30,8 @@ public class HighestPopularityNewPartnerService implements NewPartnerService {
         User highestPointer = null;
 
         int maxPoint = 0;
+
+        log.info("Looking for a partner for you");
 
         for (User user : users) {
             if (user.getPoint() > maxPoint) {
